@@ -1,0 +1,129 @@
+<div class="add-book">
+  <div *ngIf="showError" class="alert alert-danger" role="alert">
+    Book was not added, Please try again!
+  </div>
+  <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title" class="required">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        formControlName="title"
+        placeholder="Book Title"
+      />
+    </div>
+    <div
+      *ngIf="
+        addBookForm.controls['title'].invalid &&
+        (addBookForm.controls['title'].dirty ||
+          addBookForm.controls['title'].touched)
+      "
+    >
+      <div *ngIf="addBookForm.controls['title'].errors?.required" class="alert alert-danger">
+        Book title is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description" class="required">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        id="description"
+        formControlName="description"
+        placeholder="Book Description"
+      />
+    </div>
+    <div
+      *ngIf="
+        addBookForm.controls['description'].invalid &&
+        (addBookForm.controls['description'].dirty ||
+          addBookForm.controls['description'].touched)
+      "
+    >
+      <div *ngIf="addBookForm.controls['description'].errors?.required" class="alert alert-danger">
+        Book description is required
+      </div>
+      <div *ngIf="addBookForm.controls['description'].errors?.minLength" class="alert alert-danger">
+        Description needs to have at least 30 chars
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="author" class="required">Author</label>
+      <input
+        type="text"
+        class="form-control"
+        name="author"
+        id="author"
+        formControlName="author"
+        placeholder="Book Author"
+      />
+    </div>
+    <div
+      *ngIf="
+        addBookForm.controls['author'].invalid &&
+        (addBookForm.controls['author'].dirty ||
+          addBookForm.controls['author'].touched)
+      "
+    >
+      <div *ngIf="addBookForm.controls['author'].errors?.required" class="alert alert-danger">
+        Book author is required
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-xs-4 col-sm-4">
+        <div class="form-group">
+          <label for="dateStart">Date Start</label>
+          <input
+            type="date"
+            class="form-control"
+            name="dateStart"
+            id="dateStart"
+            formControlName="dateStart"
+            placeholder="Date Start"
+          />
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-4 col-sm-4">
+        <div class="form-group">
+          <label for="dateRead">Date End</label>
+          <input
+            type="date"
+            class="form-control"
+            name="dateRead"
+            id="dateRead"
+            formControlName="dateRead"
+            placeholder="Date Read"
+          />
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-4 col-sm-4">
+        <div class="form-group">
+          <label for="rate">Rate</label>
+          <input
+            type="number"
+            min="0"
+            max="5"
+            class="form-control"
+            name="rate"
+            id="rate"
+            formControlName="rate"
+            placeholder="Book Rate"
+          />
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="addBookForm.pristine || addBookForm.invalid"
+    >
+      Add Book
+    </button>
+    <button type="submit" class="btn btn-secondary" [routerLink]="['/books']">
+      Cancel
+    </button>
+  </form>
+</div>

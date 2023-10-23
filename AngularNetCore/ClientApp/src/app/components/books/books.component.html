@@ -1,0 +1,44 @@
+<h1>Books</h1>
+
+<table class="table table-striped">
+  <thead>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Author</th>
+    <th>Rate</th>
+    <th>Date started</th>
+    <th>Date read</th>
+    <th>Status</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books$ | async">
+      <td>{{ book.title }}</td>
+      <td>{{ book.description | slice : 0 : 50 }}...</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.rate }}</td>
+      <td>{{ book.dateStart | date : "dd/MM/yyyy" }}</td>
+      <td>{{ book.dateRead | date : "dd/MM/yyyy" }}</td>
+      <td>
+        {{
+          book.dateRead
+            ? "Read"
+            : book.dateStart
+            ? "In Progress"
+            : "Not Started"
+        }}
+      </td>
+      <td>
+        <button type="button" class="btn btn-info" (click)="showBook(book.id)">
+          Details
+        </button>
+        <button type="button" class="btn btn-primary" (click)="updateBook(book.id)">
+          Update
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
