@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
     return this.auth.isAuthenticated$.pipe(tap(loggedIn => {
       if (!loggedIn) {
-        this.auth.loginWithPopup();
+        this.auth.loginWithRedirect();
       }
     }));
   }

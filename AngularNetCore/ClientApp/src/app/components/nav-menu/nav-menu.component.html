@@ -33,11 +33,11 @@
             >
           </li>
           <li class="nav-item" *ngIf="!(auth.isAuthenticated$ | async)">
-            <button class="nav-link text-dark" (click)="auth.loginWithPopup()"
+            <button class="nav-link text-dark" (click)="auth.loginWithRedirect()"
               >Log In</button
             >
           </li>
-          <li class="nav-item" *ngIf="!(auth.isAuthenticated$ | async)">
+          <li class="nav-item" *ngIf="auth.isAuthenticated$ | async">
             <button class="nav-link text-dark" (click)="auth.logout({ logoutParams: {} })"
               >Log Out</button
             >
