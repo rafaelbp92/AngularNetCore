@@ -6,3 +6,9 @@
     content: "*";
     color: red;
 }
+
+.buttons-container {
+    display: flex;
+    column-gap: 1rem;
+    padding: 1rem 0;
+}

@@ -127,15 +127,17 @@
         </div>
       </div>
     </div>
-    <button
-      type="submit"
-      class="btn btn-success"
-      [disabled]="addBookForm.pristine || addBookForm.invalid"
-    >
-      Add Book
-    </button>
-    <button type="submit" class="btn btn-secondary" [routerLink]="['/books']">
-      Cancel
-    </button>
+    <div class="buttons-container">
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="addBookForm.pristine || addBookForm.invalid"
+      >
+        Add Book
+      </button>
+      <button type="submit" class="btn btn-secondary" [routerLink]="['/books']">
+        Cancel
+      </button>
+    </div>
   </form>
 </div>
