@@ -21,7 +21,10 @@
           addBookForm.controls['title'].touched)
       "
     >
-      <div *ngIf="addBookForm.controls['title'].errors?.required" class="alert alert-danger">
+      <div
+        *ngIf="addBookForm.controls['title'].errors?.required"
+        class="alert alert-danger"
+      >
         Book title is required
       </div>
     </div>
@@ -43,10 +46,16 @@
           addBookForm.controls['description'].touched)
       "
     >
-      <div *ngIf="addBookForm.controls['description'].errors?.required" class="alert alert-danger">
+      <div
+        *ngIf="addBookForm.controls['description'].errors?.required"
+        class="alert alert-danger"
+      >
         Book description is required
       </div>
-      <div *ngIf="addBookForm.controls['description'].errors?.minLength" class="alert alert-danger">
+      <div
+        *ngIf="addBookForm.controls['description'].errors?.minLength"
+        class="alert alert-danger"
+      >
         Description needs to have at least 30 chars
       </div>
     </div>
@@ -68,7 +77,10 @@
           addBookForm.controls['author'].touched)
       "
     >
-      <div *ngIf="addBookForm.controls['author'].errors?.required" class="alert alert-danger">
+      <div
+        *ngIf="addBookForm.controls['author'].errors?.required"
+        class="alert alert-danger"
+      >
         Book author is required
       </div>
     </div>
